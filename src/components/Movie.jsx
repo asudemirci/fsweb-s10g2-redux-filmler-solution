@@ -14,7 +14,7 @@ const Movie = (props) => {
   const displayFavorites = useSelector((state) => state.favorites.displayFavorites);
 
   const movie = movies.find((movie) => movie.id === Number(id));
-  const isFavorite = favorites.some((fav) => fav.id === movie.id);
+  const isFavorite = !!favorites.find((fav) => fav.id === movie.id);
 
   const handleDelete = () => {
     dispatch(deleteMovie(movie.id));

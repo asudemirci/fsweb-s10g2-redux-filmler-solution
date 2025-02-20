@@ -7,6 +7,9 @@ const MovieHeader = (props) => {
   const dispatch = useDispatch();
   const appTitle = useSelector((state) => state.movies.appTitle);
 const displayFavorites = useSelector((state) => state.favorites.displayFavorites);
+const handleToggle = () => {
+  dispatch(toggleFavorites());
+};
  
   return (
     <div className="flex justify-between items-center shadow rounded-md bg-white p-2 pl-3 my-3">
@@ -14,7 +17,7 @@ const displayFavorites = useSelector((state) => state.favorites.displayFavorites
       <div className="flex items-center gap-2">
         <button
           className="myButton bg-blue-600 hover:bg-blue-500"
-          onClick={() => dispatch(toggleFavorites())}
+          onClick={handleToggle}
         >
           Favorileri {displayFavorites ? 'gizle' : 'göster'}
         </button>
